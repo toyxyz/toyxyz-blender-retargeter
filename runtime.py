@@ -170,9 +170,10 @@ class Session:
             fps = self.scene.render.fps / self.scene.render.fps_base
             draft = floor_markers.draft_offsets(self.scene, self.target)
             marker_key = draft if draft is not None else settings.target.contact_marker_offsets
+            root_offset = tuple(settings.root_offset)
             options = (settings.solver_strength, settings.travel, settings.stride_scale, settings.hip_offset, settings.floor_contact,
                        settings.foot_contact_stiffness, settings.knee_extension_damping,
-                       settings.knee_bend_preservation, marker_key,
+                       settings.knee_bend_preservation, marker_key, root_offset,
                        settings.calibrated_wrist_reach, settings.staged_ankle_reach,
                        reach_weights(settings, 'hand'), reach_weights(settings, 'foot'))
             if (self.previous is not None and frame == self.frame and options == self.options
@@ -185,7 +186,7 @@ class Session:
                 pose = self.solver.solve(source, settings, frame, fps)
             else:
                 pose = self.solver.solve(source, settings, frame, fps, contact_soles=self.target.contact_soles(offsets))
-            self.target.write(self.helper, pose, target_world)
+            self.target.write(self.helper, pose, target_world, root_offset=root_offset)
             self.previous, self.frame, self.options, self.target_transform = source, frame, options, target_world
         finally:
             self.busy = False

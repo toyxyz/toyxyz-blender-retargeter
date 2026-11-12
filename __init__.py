@@ -2,7 +2,8 @@
 
 import bpy
 from bpy.props import (
-    BoolProperty, CollectionProperty, EnumProperty, FloatProperty, IntProperty, PointerProperty, StringProperty,
+    BoolProperty, CollectionProperty, EnumProperty, FloatProperty, FloatVectorProperty, IntProperty,
+    PointerProperty, StringProperty,
 )
 
 from . import actors, arp_fk, bake, floor_markers, mapping_ui, reference, runtime
@@ -13,7 +14,7 @@ from .retarget import evaluated_matrices
 bl_info = {
     'name': 'Toyxyz Blender Retargeter',
     'author': 'Toyxyz',
-    'version': (0, 4, 29),
+    'version': (0, 4, 30),
     'blender': (5, 0, 0),
     'location': '3D View > Sidebar > Retarget',
     'category': 'Animation',
@@ -122,6 +123,10 @@ class TRG_PG_Settings(bpy.types.PropertyGroup):
                                  min=0., max=4., default=1., update=runtime.request_refresh)
     hip_offset: FloatProperty(name='Hip Height Offset (m)', min=-1., max=1., default=0., precision=3,
                               description='Raise or lower the target hips in metres', update=runtime.request_refresh)
+    root_offset: FloatVectorProperty(
+        name='Root Offset (m)', subtype='XYZ', size=3, precision=3, default=(0., 0., 0.),
+        description='Move the entire retargeted pose along Blender world axes in metres',
+        update=runtime.request_refresh)
     floor_contact: BoolProperty(name='Floor Contact', description='Correct foot penetration around the heel or forefoot',
                                 default=True, update=runtime.request_refresh)
     foot_contact_stiffness: FloatProperty(
@@ -516,6 +521,10 @@ class TRG_PT_retarget(bpy.types.Panel):
                 root.prop(settings, 'travel')
                 root.prop(settings, 'stride_scale')
                 root.prop(settings, 'hip_offset')
+                root.label(text='Root Offset (m)')
+                offsets = root.row(align=True)
+                for index, axis in enumerate('XYZ'):
+                    offsets.prop(settings, 'root_offset', index=index, text=axis)
         if disclosure(layout, settings, 'show_reference'):
             for (side, title, _), profile in zip(SIDES, profiles):
                 box = layout.box()

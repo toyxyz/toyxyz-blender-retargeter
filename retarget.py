@@ -172,10 +172,12 @@ class RigModel:
             positions[j] = positions[parent] + rotations[parent] @ self.skeleton.offsets[j]
         return Pose(positions, rotations)
 
-    def write(self, helper, pose, target_world):
+    def write(self, helper, pose, target_world, *, root_offset):
         inv = np.asarray(target_world.inverted(), dtype=float)
         inv_rotation = rotation(target_world).T
         positions = pose.positions @ self.axes.T / self.unit + self.origin
+        # Apply scene placement after solving so the entire pose moves together.
+        positions += np.asarray(root_offset) / self.unit
         local_positions = positions @ inv[:3, :3].T + inv[:3, 3]
         local_rotations = inv_rotation @ self.axes @ pose.rotations @ self.axes.T @ self.reference_rotations
         bones = helper.pose.bones

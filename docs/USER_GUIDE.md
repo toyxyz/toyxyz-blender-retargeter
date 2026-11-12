@@ -110,6 +110,9 @@ For a walk on a character with different leg lengths, start with **Root Travel**
 | **In Place** | Removes horizontal root travel while keeping the vertical motion. |
 | **Travel Multiplier** | Scales the chosen horizontal travel. A value of 1.00 keeps the selected mode's distance. |
 | **Hip Height Offset (m)** | Raises or lowers the target hips during the solve. The default is 0 m. |
+| **Root Offset (m)** | Moves the entire retargeted pose along Blender's world X, Y, and Z axes after solving. Defaults to 0 m on each axis. |
+
+Set **Root Offset (m)** separately for each actor to place the retargeted characters in the scene. For example, set **X** to 2.000 to move a character two metres along world X. The offset applies at every **Solver Strength** and is included in the baked Action. A Z offset moves the solved foot placement with the body.
 
 ## Edit foot contact markers
 

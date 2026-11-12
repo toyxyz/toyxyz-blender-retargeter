@@ -1,6 +1,6 @@
 schema_version = "1.0.0"
 id = "toyxyz_live_retarget"
-version = "0.4.29"
+version = "0.4.30"
 name = "Toyxyz Blender Retargeter"
 tagline = "Map two humanoid rigs and retarget their motion live"
 maintainer = "Toyxyz"
