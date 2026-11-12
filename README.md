@@ -18,6 +18,10 @@ The target rigs use direct FK rotation copying without the add-on.
 
 https://github.com/user-attachments/assets/92e0edd6-31b7-4b0c-9bfd-5ca1aa047eb9
 
+## Add-on interface
+
+![Retarget sidebar with three connected actors and controls for baking, solver options, reference poses, and bone mapping](docs/images/addon-interface.png)
+
 ## Quick start
 
 1. Download the add-on ZIP and install it from **Preferences → Get Extensions → Install from Disk**.
