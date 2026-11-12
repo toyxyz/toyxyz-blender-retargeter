@@ -36,6 +36,8 @@ https://github.com/user-attachments/assets/92e0edd6-31b7-4b0c-9bfd-5ca1aa047eb9
 - Editable reference poses, limb reach, root travel, and foot contact
 - Single-actor and batch baking to Blender Actions
 
+Hand contact control is currently limited, including the ability to keep the palms planted during weight-bearing motions.
+
 ## Build from source
 
 Run `blender --command extension build --source-dir .` from the repository root.
