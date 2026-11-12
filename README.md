@@ -4,6 +4,12 @@ Transfer natural-looking humanoid motion between rigs with different body propor
 
 [Download the latest release](https://github.com/toyxyz/toyxyz-blender-retargeter/releases/latest) · [Read the user guide](docs/USER_GUIDE.md)
 
+## Demo
+
+The same motion retargeted to three rigs with short, standard, and long legs.
+
+https://github.com/user-attachments/assets/784f2eaa-0a1a-4120-929a-e4eb2ae73ccd
+
 ## Quick start
 
 1. Download the add-on ZIP and install it from **Preferences → Get Extensions → Install from Disk**.
