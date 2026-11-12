@@ -1,6 +1,6 @@
 # Toyxyz Blender Retargeter
 
-Transfer humanoid animation between armatures in Blender 5.0 or later. Preview the motion live, adjust the retargeting, and bake the result to a Blender Action.
+Transfer natural-looking humanoid motion between rigs with different body proportions in Blender 5.0 or later. Proportion-aware root travel, adjustable limb reach, and foot contact help adapt stride and foot placement to the target rig while preserving the source motion. Preview the result live and bake it to a Blender Action.
 
 [Download the latest release](https://github.com/toyxyz/toyxyz-blender-retargeter/releases/latest) · [Read the user guide](docs/USER_GUIDE.md)
 
