@@ -6,9 +6,17 @@ Transfer natural-looking humanoid motion between rigs with different body propor
 
 ## Demo
 
-The same motion retargeted to three rigs with short, standard, and long legs.
+Both videos use the same source motion and the same three target rigs, with short, standard, and long legs.
+
+### Toyxyz Blender Retargeter
 
 https://github.com/user-attachments/assets/784f2eaa-0a1a-4120-929a-e4eb2ae73ccd
+
+### FK-only comparison
+
+The target rigs use direct FK rotation copying without the add-on.
+
+https://github.com/user-attachments/assets/92e0edd6-31b7-4b0c-9bfd-5ca1aa047eb9
 
 ## Quick start
 
